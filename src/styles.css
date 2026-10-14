@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@import "@fontsource/outfit/500.css";
+@import "@fontsource/outfit/600.css";
+@import "@fontsource/outfit/700.css";
+
+@theme {
+  --color-ink: #1c1430;
+  --color-panel: #2a2144;
+  --color-paper: #fff4e4;
+  --color-fog: #c4b6d4;
+  --color-signal: #ffd15c;
+  --color-coral: #ff5a7a;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 2px;
+  }
+}
+
+.studio-split {
+  display: grid;
+  min-height: 0;
+  flex: 1;
+  grid-template-rows: minmax(16rem, 1fr) minmax(16rem, 46%);
+}
+@media (min-width: 48rem) {
+  .studio-split {
+    grid-template-rows: none;
+    grid-template-columns: 24rem minmax(0, 1fr);
+  }
+}
+.float-chip {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-paper) 18%, transparent);
+}
+.float-legend {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-paper) 14%, transparent);
+}
+.maplibregl-ctrl-group {
+  background: var(--color-panel) !important;
+  border-radius: 0.75rem !important;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-paper) 14%, transparent) !important;
+}
+.maplibregl-ctrl-group button {
+  width: 2.5rem;
+  height: 2.5rem;
+  filter: invert(0.92);
+}
+.maplibregl-ctrl-group button + button {
+  border-top-color: color-mix(in srgb, var(--color-paper) 12%, transparent) !important;
+}
+.maplibregl-ctrl-attrib {
+  background: color-mix(in srgb, var(--color-ink) 78%, transparent) !important;
+  color: var(--color-fog) !important;
+  font-size: 0.75rem;
+}
+.maplibregl-ctrl-attrib a {
+  color: var(--color-paper) !important;
+}
+.maplibregl-ctrl-bottom-right,
+.maplibregl-ctrl-bottom-left {
+  bottom: 16.5rem;
+}
+.maplibregl-compact-show {
+  background: transparent !important;
+}
+
+.drive-puck,
+.drive-pin {
+  width: 3.25rem;
+  height: 3.25rem;
+  overflow: hidden;
+  border-radius: 999px;
+  border: 2px solid var(--color-signal);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-ink) 55%, transparent);
+}
+.drive-pin {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+.drive-puck img,
+.drive-pin img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
